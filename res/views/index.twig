@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Lazerdrive Leaderboard</title>
+
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="jumbotron">
+            <h1 class="display-3">Lazerdrive Leaderboard</h1>
+            <p class="lead">The <a href="http://www.lazerdrive.io/">Lazerdrive</a> hall of fame of the best scores and players.</p>
+            <hr class="m-y-md">
+        </div>
+
+        <div class="row">
+
+            {% for player in players %}
+
+                <div class="col-sm-3">
+                    <div class="card text-center">
+                        <div class="card-header">
+                            {{ player.name }}
+                        </div>
+                        <div class="card-block">
+                            <p>High score: {{ player.score }}</p>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+
+</body>
+</html>
