@@ -26,7 +26,7 @@ $container['view'] = function ($c) {
 
 $app = new \Slim\App($container);
 
-$app->get('/', function (ServerRequestInterface $request, ResponseInterface $response) {
+$app->get('/', function (ServerRequestInterface $request, ResponseInterface $response) : ResponseInterface {
     $db = new PDO('mysql:host=localhost;dbname=lazerdrive', 'root', '');
     $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
 
