@@ -12,7 +12,6 @@ $container = new \Slim\Container([
         'displayErrorDetails' => true,
     ],
 ]);
-$container['debug'] = true;
 $container['view'] = function ($c) {
     $view = new Twig(__DIR__ . '/../res/views', [
         'cache' => false,
@@ -30,7 +29,9 @@ $app = new \Slim\App($container);
 $app->get('/', function (ServerRequestInterface $request, ResponseInterface $response) {
     $db = new PDO('mysql:host=localhost;dbname=lazerdrive', 'root', '');
     $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+
     $scores = $db->query('SELECT player, score FROM highscore ORDER BY score DESC LIMIT 20')->fetchAll(PDO::FETCH_ASSOC);
+
     return $this->view->render($response, 'index.twig', [
         'scores' => $scores,
     ]);
