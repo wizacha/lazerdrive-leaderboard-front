@@ -9,15 +9,18 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.theme.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Work+Sans:200,400,700">
 </head>
 <body>
 
     <div class="container">
 
         <div class="jumbotron">
-            <h1 class="display-3">Lazerdrive Leaderboard</h1>
-            <p class="lead">The <a href="http://www.lazerdrive.io/">Lazerdrive</a> hall of fame of the best scores and players.</p>
+            <h1>Lazerdrive <span class="color2">Leaderboard</span></h1>
+            <p class="lead">The Lazerdrive hall of fame of the best scores and players.</p>
             <hr class="m-y-md">
+            <a class="btn btn-primary btn-lg" href="http://www.lazerdrive.io/" target="_blank">Play now</a>
         </div>
 
         <table class="table table-striped table-hover">
@@ -34,7 +37,7 @@
                     <td>
                         {{ score.player }}
                     </td>
-                    <td class="text-right">
+                    <td class="text-right score">
                         {{ score.score }}
                     </td>
                 </tr>

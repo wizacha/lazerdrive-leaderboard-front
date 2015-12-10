@@ -1,0 +1,57 @@
+body {
+    background-color: #010A15;
+    font-family: "Work Sans", "Helvetica Neue", Helvetica;
+    font-size: 20px;
+    letter-spacing: -.04em;
+    color: #FFF;
+}
+
+a {
+    color: #03F3A2;
+}
+
+h1 {
+    font-family: "Work Sans", "Helvetica Neue", Helvetica;
+    font-weight: 200;
+}
+
+a:hover, a:focus {
+    color: #FF3AAD;
+    text-decoration: underline;
+}
+
+.jumbotron {
+    background-color: #041428;
+}
+.jumbotron > hr {
+    border-top-color: #DDD19F;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #041428;
+}
+.table-hover > tbody > tr:hover {
+    background-color: #002B8B !important;
+}
+.table .score {
+    color: #DDD19F;
+}
+
+.color1 {
+    color: #FF3AAD;
+}
+.color2 {
+    color: #DDD19F;
+}
+.color3 {
+    color: #03F3A2;
+}
+
+.btn-primary {
+    background-color: #d36890;
+    border-color: #d36890;
+}
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #FF3AAD;
+    border-color: #FF3AAD;
+}
