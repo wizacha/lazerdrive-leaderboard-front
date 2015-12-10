@@ -28,26 +28,11 @@ $container['view'] = function ($c) {
 $app = new \Slim\App($container);
 
 $app->get('/', function (ServerRequestInterface $request, ResponseInterface $response) {
-    $players = [
-        [
-            'name' => 'Jawad',
-            'score' => 384,
-        ],
-        [
-            'name' => 'Raoul',
-            'score' => 302,
-        ],
-        [
-            'name' => 'Thierry',
-            'score' => 230,
-        ],
-        [
-            'name' => 'Stéphane',
-            'score' => 82,
-        ],
-    ];
+    $db = new PDO('mysql:host=localhost;dbname=lazerdrive', 'root', '');
+    $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+    $scores = $db->query('SELECT player, score FROM lazerdrive ORDER BY score DESC LIMIT 20')->fetchAll(PDO::FETCH_ASSOC);
     return $this->view->render($response, 'index.twig', [
-        'players' => $players,
+        'scores' => $scores,
     ]);
 });
 

@@ -29,13 +29,13 @@
             </tr>
             </thead>
 
-            {% for player in players %}
+            {% for score in scores %}
                 <tr>
                     <td>
-                        {{ player.name }}
+                        {{ score.player }}
                     </td>
                     <td class="text-right">
-                        {{ player.score }}
+                        {{ score.score }}
                     </td>
                 </tr>
             {% endfor %}
