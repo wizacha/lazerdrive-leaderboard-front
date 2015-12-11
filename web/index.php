@@ -4,6 +4,7 @@ use \Psr\Http\Message\ServerRequestInterface;
 use \Psr\Http\Message\ResponseInterface;
 use Slim\Views\Twig;
 use Slim\Views\TwigExtension;
+use Zend\Diactoros\Response\TextResponse;
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -35,6 +36,11 @@ $app->get('/', function (ServerRequestInterface $request, ResponseInterface $res
     return $this->view->render($response, 'index.twig', [
         'scores' => $scores,
     ]);
+});
+
+$app->get('/deploy', function () {
+    $result = shell_exec('git pull');
+    return new TextResponse($result);
 });
 
 $app->run();
