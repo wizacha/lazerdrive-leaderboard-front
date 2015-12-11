@@ -35,7 +35,7 @@
                             <td>
                                 #{{ position + 1 }}
                             </td>
-                            <td>
+                            <td {% if 'Player' in score.player %}class="text-muted"{% endif %}>
                                 {{ score.player }}
                             </td>
                             <td class="text-right score">
