@@ -39,7 +39,7 @@ $app->get('/', function (ServerRequestInterface $request, ResponseInterface $res
 });
 
 $app->get('/deploy', function () {
-    $result = shell_exec('cd .. && git pull && composer install --no-interaction --no-progress --no-dev');
+    $result = shell_exec('cd .. && git pull 2>&1 && composer install --no-interaction --no-progress --no-dev 2>&1');
     return new TextResponse($result);
 });
 
