@@ -31,7 +31,7 @@ $app->get('/', function (ServerRequestInterface $request, ResponseInterface $res
     $db = new PDO('mysql:host=127.0.0.1;dbname=lazerdrive;charset=utf8', 'root', '');
     $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
 
-    $scores = $db->query('SELECT player, score FROM highscore ORDER BY score DESC LIMIT 20')->fetchAll(PDO::FETCH_ASSOC);
+    $scores = $db->query('SELECT player, score, online FROM highscore ORDER BY score DESC LIMIT 20')->fetchAll(PDO::FETCH_ASSOC);
 
     return $this->view->render($response, 'index.twig', [
         'scores' => $scores,

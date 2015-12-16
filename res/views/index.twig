@@ -31,7 +31,7 @@
                 <table class="table table-striped table-hover">
 
                     {% for position, score in scores %}
-                        <tr {% if position == 0 %}class="success"{% endif %}>
+                        <tr>
                             <td>
                                 #{{ position + 1 }}
                             </td>
@@ -40,6 +40,9 @@
                             </td>
                             <td class="text-right score">
                                 {{ score.score }}
+                            </td>
+                            <td>
+                                {% if score.online %}<span class="label label-success">Online</span>{% endif %}
                             </td>
                         </tr>
                     {% endfor %}
