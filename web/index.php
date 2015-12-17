@@ -1,8 +1,9 @@
 <?php
 
 use Leaderboard\Repository\PdoPlayerRepository;
-use \Psr\Http\Message\ServerRequestInterface;
-use \Psr\Http\Message\ResponseInterface;
+use Leaderboard\Repository\PlayerRepository;
+use \Psr\Http\Message\ServerRequestInterface as Request;
+use \Psr\Http\Message\ResponseInterface as Response;
 use Slim\Views\Twig;
 use Slim\Views\TwigExtension;
 use Zend\Diactoros\Response\TextResponse;
@@ -25,11 +26,15 @@ $container['view'] = function ($c) {
 
     return $view;
 };
+$container['player_repository'] = function () {
+    return new PdoPlayerRepository();
+};
 
 $app = new \Slim\App($container);
 
-$app->get('/', function (ServerRequestInterface $request, ResponseInterface $response) : ResponseInterface {
-    $repository = new PdoPlayerRepository();
+$app->get('/', function (Request $request, Response $response) use ($container) : Response {
+    /** @var PlayerRepository $repository */
+    $repository = $container['player_repository'];
 
     return $this->view->render($response, 'index.twig', [
         'players' => $repository->getTopPlayers(),
