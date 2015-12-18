@@ -13,7 +13,6 @@ class GithubInfoProvider implements PlayerRepository
 {
     const API_URL = 'https://api.github.com/users/';
     const CACHE_KEY_PREFIX = 'GithubInfoProvider.user.';
-    const SECONDS_IN_DAY = 3600*24;
 
     /**
      * @var PlayerRepository
@@ -66,7 +65,9 @@ class GithubInfoProvider implements PlayerRepository
 
         $data = $this->getGithubInfo($username);
 
-        apc_store($key, $data, self::SECONDS_IN_DAY);
+        // Random TTL between 1 hour and 1 day to avoid refreshing all users at once
+        $ttl = rand(3600, 3600*24);
+        apc_store($key, $data, $ttl);
 
         return $data;
     }
