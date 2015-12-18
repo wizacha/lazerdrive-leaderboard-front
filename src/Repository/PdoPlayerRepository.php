@@ -12,7 +12,7 @@ class PdoPlayerRepository implements PlayerRepository
         $db = new PDO('mysql:host=127.0.0.1;dbname=lazerdrive;charset=utf8', 'root', '');
         $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
 
-        $statement = $db->query('SELECT player, score, online FROM highscore ORDER BY score DESC LIMIT 20');
+        $statement = $db->query('SELECT player, score, online FROM highscore WHERE player NOT LIKE "Player %" ORDER BY score DESC LIMIT 20');
         $data = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         return array_map(function (array $playerData) {
