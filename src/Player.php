@@ -25,9 +25,11 @@ class Player
     private $company = '';
 
     /**
+     * By default it's the default Gravatar.
+     *
      * @var string
      */
-    private $avatarUrl = '';
+    private $avatarUrl = 'http://www.gravatar.com/avatar/?d=identicon';
 
     public function __construct(string $name, int $highScore, bool $isOnline)
     {
