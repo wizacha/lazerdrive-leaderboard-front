@@ -28,15 +28,19 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
 
-                <table class="table table-striped table-hover">
+                <table class="scores table table-striped table-hover">
 
                     {% for position, player in players %}
                         <tr>
                             <td>
                                 #{{ position + 1 }}
                             </td>
+                            <td>
+                                <img src="{{ player.avatarUrl }}" class="avatar">
+                            </td>
                             <td {% if 'Player ' in player.name %}class="text-muted"{% endif %}>
                                 {{ player.name }}
+                                {% if player.company %}<span class="label label-primary">{{ player.company }}</span>{% endif %}
                                 {% if player.online %}<span class="label label-success">online</span>{% endif %}
                             </td>
                             <td class="text-right score">

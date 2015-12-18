@@ -1,5 +1,7 @@
 <?php
 
+use GuzzleHttp\Client;
+use Leaderboard\Repository\GithubInfoProvider;
 use Leaderboard\Repository\PdoPlayerRepository;
 use Leaderboard\Repository\PlayerRepository;
 use \Psr\Http\Message\ServerRequestInterface as Request;
@@ -26,8 +28,11 @@ $container['view'] = function ($c) {
 
     return $view;
 };
-$container['player_repository'] = function () {
-    return new PdoPlayerRepository();
+$container['http_client'] = function () {
+    return new Client();
+};
+$container['player_repository'] = function ($c) {
+    return new GithubInfoProvider(new PdoPlayerRepository(), $c['http_client']);
 };
 
 $app = new \Slim\App($container);

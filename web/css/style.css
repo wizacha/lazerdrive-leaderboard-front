@@ -33,8 +33,11 @@ a:hover, a:focus {
 .table-hover > tbody > tr:hover {
     background-color: #002B8B !important;
 }
-.table .score {
+.table.scores .score {
     color: #DDD19F;
+}
+.table.scores td {
+    vertical-align: middle;
 }
 
 .color1 {
@@ -54,4 +57,13 @@ a:hover, a:focus {
 .btn-primary:hover, .btn-primary:focus {
     background-color: #FF3AAD;
     border-color: #FF3AAD;
+}
+
+.label {
+    font-weight: normal;
+}
+
+.avatar {
+    width: 48px;
+    border-radius: 3px;
 }
