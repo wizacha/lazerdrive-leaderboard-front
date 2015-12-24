@@ -7,14 +7,37 @@ use PDO;
 
 class PdoPlayerRepository implements PlayerRepository
 {
+    /**
+     * @var PDO
+     */
+    private $db;
+
+    public function __construct(PDO $db)
+    {
+        $this->db = $db;
+    }
+
     public function getTopPlayers() : array
     {
-        $db = new PDO('mysql:host=127.0.0.1;dbname=lazerdrive;charset=utf8', 'root', '');
-        $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
-
-        $statement = $db->query('SELECT player, score, online FROM highscore WHERE player NOT LIKE "Player %" ORDER BY score DESC LIMIT 20');
+        $statement = $this->db->query('SELECT player, score, online FROM highscore WHERE player NOT LIKE "Player %" ORDER BY score DESC LIMIT 20');
         $data = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+        return $this->createPlayers($data);
+    }
+
+    public function getPlayersOnline() : array
+    {
+        $statement = $this->db->query('SELECT player, score, online FROM highscore WHERE player NOT LIKE "Player %" AND online = 1 ORDER BY score DESC LIMIT 20');
+        $data = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        return $this->createPlayers($data);
+    }
+
+    /**
+     * @return Player[]
+     */
+    private function createPlayers(array $data) : array
+    {
         return array_map(function (array $playerData) {
             return new Player($playerData['player'], $playerData['score'], $playerData['online']);
         }, $data);

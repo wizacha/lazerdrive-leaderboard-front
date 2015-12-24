@@ -31,8 +31,14 @@ $container['view'] = function ($c) {
 $container['http_client'] = function () {
     return new Client();
 };
+$container['db'] = function () {
+    $db = new PDO('mysql:host=127.0.0.1;dbname=lazerdrive;charset=utf8', 'root', '');
+    $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+    return $db;
+};
 $container['player_repository'] = function ($c) {
-    return new GithubInfoProvider(new PdoPlayerRepository(), $c['http_client']);
+    $pdoRepository = new PdoPlayerRepository($c['db']);
+    return new GithubInfoProvider($pdoRepository, $c['http_client']);
 };
 
 $app = new \Slim\App($container);
@@ -43,6 +49,7 @@ $app->get('/', function (Request $request, Response $response) use ($container) 
 
     return $this->view->render($response, 'index.twig', [
         'players' => $repository->getTopPlayers(),
+        'onlinePlayers' => $repository->getPlayersOnline(),
     ]);
 });
 

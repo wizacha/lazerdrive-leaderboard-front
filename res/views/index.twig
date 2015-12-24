@@ -26,7 +26,9 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
+            <div class="{{ onlinePlayers|length == 0 ? 'col-md-6 col-md-offset-3' : 'col-md-7' }}">
+
+                <h3>Hall of fame</h3>
 
                 <table class="scores table table-striped table-hover">
 
@@ -38,7 +40,7 @@
                             <td>
                                 <img src="{{ player.avatarUrl }}" class="avatar">
                             </td>
-                            <td {% if 'Player ' in player.name %}class="text-muted"{% endif %}>
+                            <td>
                                 {{ player.name }}
                                 {% if player.company %}<span class="label label-primary">{{ player.company }}</span>{% endif %}
                                 {% if player.online %}<span class="label label-success">online</span>{% endif %}
@@ -52,6 +54,31 @@
                 </table>
 
             </div>
+
+            {% if onlinePlayers %}
+                <div class="col-md-5">
+                    <h3>Currently playing</h3>
+
+                    <table class="scores table table-striped table-hover">
+
+                        {% for position, player in onlinePlayers %}
+                            <tr>
+                                <td>
+                                    <img src="{{ player.avatarUrl }}" class="avatar">
+                                </td>
+                                <td>
+                                    {{ player.name }}
+                                    {% if player.company %}<span class="label label-primary">{{ player.company }}</span>{% endif %}
+                                </td>
+                                <td class="text-right score">
+                                    {{ player.highScore }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+                    </table>
+                </div>
+            {% endif %}
         </div>
 
     </div>

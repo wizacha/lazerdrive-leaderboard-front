@@ -34,6 +34,22 @@ class GithubInfoProvider implements PlayerRepository
     {
         $players = $this->decoratedRepository->getTopPlayers();
 
+        return $this->addPlayerInformation($players);
+    }
+
+    public function getPlayersOnline() : array
+    {
+        $players = $this->decoratedRepository->getPlayersOnline();
+
+        return $this->addPlayerInformation($players);
+    }
+
+    /**
+     * @param Player[] $players
+     * @return Player[]
+     */
+    private function addPlayerInformation(array $players) : array
+    {
         return array_map(function (Player $player) {
             $githubInfo = $this->getCachedGithubInfo($player->getName());
 
