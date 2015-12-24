@@ -32,7 +32,7 @@ $container['http_client'] = function () {
     return new Client();
 };
 $container['db'] = function () {
-    $db = new PDO('mysql:host=127.0.0.1;dbname=lazerdrive;charset=utf8', 'root', '');
+    $db = new PDO('mysql:host=127.0.0.1;dbname=lazerdrive;charset=utf8mb4', 'root', '');
     $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
     return $db;
 };
