@@ -95,6 +95,11 @@ class GithubInfoProvider implements PlayerRepository
      */
     private function getGithubInfo(string $username) : array
     {
+        // Skip invalid GitHub usernames
+        if (preg_match('/^[a-zA-Z\d-]+$/', $username) !== 1) {
+            return [];
+        }
+
         try {
             $response = $this->httpClient->request('GET', self::API_URL . $username);
         } catch (ClientException $e) {
