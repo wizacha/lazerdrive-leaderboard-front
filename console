@@ -2,11 +2,14 @@
 <?php
 
 use Leaderboard\Application\Deployer;
+use Leaderboard\Application\Kernel;
+use Silly\Edition\PhpDi\Application;
 use Symfony\Component\Console\Output\OutputInterface;
 
-$container = require __DIR__ . '/res/bootstrap.php';
+require __DIR__ . '/vendor/autoload.php';
 
-$app = new Silly\Edition\PhpDi\Application('Lazerdrive leaderboard', '1', $container);
+$container = (new Kernel)->createContainer();
+$app = new Application('Lazerdrive leaderboard', '1', $container);
 
 $app->command('deploy', function (Deployer $deployer, OutputInterface $output) {
     $output->writeln($deployer->deploy());

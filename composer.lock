@@ -4,57 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9948539951146384a83dd6215e8f994e",
-    "content-hash": "6b0bc6c960074438b7bbac29787ded86",
+    "hash": "f4f82c59c19372e5433775e45299ded4",
+    "content-hash": "9247f9e6028f8c206fb6a8e1de682003",
     "packages": [
-        {
-            "name": "aura/router",
-            "version": "3.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/auraphp/Aura.Router.git",
-                "reference": "aeb49c8903cb07561022e2b65ef16c68fd2c01da"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/auraphp/Aura.Router/zipball/aeb49c8903cb07561022e2b65ef16c68fd2c01da",
-                "reference": "aeb49c8903cb07561022e2b65ef16c68fd2c01da",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.0",
-                "psr/http-message": "~1.0",
-                "psr/log": "~1.0"
-            },
-            "require-dev": {
-                "zendframework/zend-diactoros": "~1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Aura\\Router\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Aura.Router Contributors",
-                    "homepage": "https://github.com/auraphp/Aura.Router/contributors"
-                }
-            ],
-            "description": "Powerful, flexible web routing for PSR-7 requests.",
-            "homepage": "https://github.com/auraphp/Aura.Router",
-            "keywords": [
-                "psr-7",
-                "route",
-                "router",
-                "routing"
-            ],
-            "time": "2015-12-01 15:31:40"
-        },
         {
             "name": "container-interop/container-interop",
             "version": "1.1.0",
@@ -84,33 +36,33 @@
         },
         {
             "name": "doctrine/cache",
-            "version": "v1.5.4",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "47cdc76ceb95cc591d9c79a36dc3794975b5d136"
+                "reference": "f8af318d14bdb0eff0336795b428b547bd39ccb6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/47cdc76ceb95cc591d9c79a36dc3794975b5d136",
-                "reference": "47cdc76ceb95cc591d9c79a36dc3794975b5d136",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/f8af318d14bdb0eff0336795b428b547bd39ccb6",
+                "reference": "f8af318d14bdb0eff0336795b428b547bd39ccb6",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2"
+                "php": "~5.5|~7.0"
             },
             "conflict": {
                 "doctrine/common": ">2.2,<2.4"
             },
             "require-dev": {
-                "phpunit/phpunit": ">=3.7",
+                "phpunit/phpunit": "~4.8|~5.0",
                 "predis/predis": "~1.0",
                 "satooshi/php-coveralls": "~0.6"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5.x-dev"
+                    "dev-master": "1.6.x-dev"
                 }
             },
             "autoload": {
@@ -150,7 +102,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2015-12-19 05:03:47"
+            "time": "2015-12-31 16:37:02"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -402,6 +354,30 @@
             "time": "2015-04-05 00:22:24"
         },
         {
+            "name": "mnapoli/twig-module",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mnapoli/TwigModule",
+                "reference": "5c2cc858a8400ce71c6f7f6c7c1c11567c7ea019"
+            },
+            "require": {
+                "php": "^5.6|^7.0",
+                "php-di/php-di": "^5.2",
+                "puli/discovery": "^1.0.0-beta8@beta",
+                "puli/repository": "^1.0.0-beta8@beta",
+                "puli/twig-extension": "^1.0.0-beta7@beta",
+                "puli/url-generator": "^1.0.0-beta3@beta",
+                "twig/twig": "^1.18"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.1"
+            },
+            "type": "library",
+            "description": "Twig module for PHP-DI",
+            "time": "2016-01-01 23:51:47"
+        },
+        {
             "name": "nikic/fast-route",
             "version": "v0.6.0",
             "source": {
@@ -486,6 +462,47 @@
                 "invoker"
             ],
             "time": "2015-10-22 19:49:23"
+        },
+        {
+            "name": "php-di/kernel",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHP-DI/Kernel",
+                "reference": "c1a77475175b7443e67e3681ef609a75b028e48e"
+            },
+            "require": {
+                "doctrine/cache": "^1.4",
+                "php": "^5.5|^7.0",
+                "php-di/php-di": "^5.2",
+                "puli/discovery": "^1.0.0-beta8@beta",
+                "puli/repository": "^1.0.0-beta8@beta"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DI\\Kernel\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "DI\\Kernel\\Test\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Kernel for PHP-DI applications",
+            "homepage": "http://php-di.org",
+            "keywords": [
+                "application",
+                "kernel",
+                "php-di"
+            ],
+            "time": "2016-01-03 12:31:29"
         },
         {
             "name": "php-di/php-di",
@@ -711,44 +728,6 @@
                 "response"
             ],
             "time": "2015-05-04 20:22:00"
-        },
-        {
-            "name": "psr/log",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/log.git",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Psr\\Log\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interface for logging libraries",
-            "keywords": [
-                "log",
-                "psr",
-                "psr-3"
-            ],
-            "time": "2012-12-21 11:40:51"
         },
         {
             "name": "puli/composer-plugin",
@@ -1158,162 +1137,6 @@
                 "router"
             ],
             "time": "2015-12-07 14:11:09"
-        },
-        {
-            "name": "slim/twig-view",
-            "version": "2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/slimphp/Twig-View.git",
-                "reference": "fe98eab8daee498cc2821f1ad2ff7123bc327844"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/slimphp/Twig-View/zipball/fe98eab8daee498cc2821f1ad2ff7123bc327844",
-                "reference": "fe98eab8daee498cc2821f1ad2ff7123bc327844",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.0",
-                "psr/http-message": "^1.0",
-                "twig/twig": "^1.18"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Slim\\Views\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Josh Lockhart",
-                    "email": "hello@joshlockhart.com",
-                    "homepage": "http://joshlockhart.com"
-                }
-            ],
-            "description": "Slim Framework view helper built on top of the Twig templating component",
-            "homepage": "http://slimframework.com",
-            "keywords": [
-                "framework",
-                "slim",
-                "template",
-                "twig",
-                "view"
-            ],
-            "time": "2015-08-17 08:45:48"
-        },
-        {
-            "name": "stratify/http",
-            "version": "0.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/stratifyphp/http.git",
-                "reference": "4358876b42c04f4682d90114a687b9e11fa68f51"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/stratifyphp/http/zipball/4358876b42c04f4682d90114a687b9e11fa68f51",
-                "reference": "4358876b42c04f4682d90114a687b9e11fa68f51",
-                "shasum": ""
-            },
-            "require": {
-                "zendframework/zend-diactoros": "^1.1"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.0@dev"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Stratify\\Http\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "time": "2015-09-01 16:44:29"
-        },
-        {
-            "name": "stratify/router",
-            "version": "0.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/stratifyphp/router.git",
-                "reference": "bae8ffbd46c92dc43e2682ac5aad789b226b76d2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/stratifyphp/router/zipball/bae8ffbd46c92dc43e2682ac5aad789b226b76d2",
-                "reference": "bae8ffbd46c92dc43e2682ac5aad789b226b76d2",
-                "shasum": ""
-            },
-            "require": {
-                "aura/router": "^3.0@beta",
-                "psr/http-message": "^1.0",
-                "stratify/http": "~0.1.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.0@dev"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Stratify\\Router\\": "src/"
-                },
-                "files": [
-                    "src/functions.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "time": "2015-09-10 11:32:06"
-        },
-        {
-            "name": "stratify/twig-module",
-            "version": "0.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/stratifyphp/twig-module.git",
-                "reference": "5648ab9255e9a9f4b3aec1cbb4d56dd96b21164a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/stratifyphp/twig-module/zipball/5648ab9255e9a9f4b3aec1cbb4d56dd96b21164a",
-                "reference": "5648ab9255e9a9f4b3aec1cbb4d56dd96b21164a",
-                "shasum": ""
-            },
-            "require": {
-                "php-di/php-di": "^5.0",
-                "puli/repository": "^1.0",
-                "puli/twig-extension": "^1.0",
-                "puli/url-generator": "^1.0",
-                "stratify/router": "~0.1.0",
-                "twig/twig": "^1.21"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.0@dev"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Stratify\\TwigModule\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "time": "2015-09-10 11:33:43"
         },
         {
             "name": "symfony/console",
@@ -1796,16 +1619,16 @@
         },
         {
             "name": "zendframework/zend-diactoros",
-            "version": "1.2.0",
+            "version": "1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-diactoros.git",
-                "reference": "edfda00b9831630c19c411f85f50a47bb66af457"
+                "reference": "4b0e6b9122b9df484a3b2e15e4fd88aa7d8861ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/edfda00b9831630c19c411f85f50a47bb66af457",
-                "reference": "edfda00b9831630c19c411f85f50a47bb66af457",
+                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/4b0e6b9122b9df484a3b2e15e4fd88aa7d8861ad",
+                "reference": "4b0e6b9122b9df484a3b2e15e4fd88aa7d8861ad",
                 "shasum": ""
             },
             "require": {
@@ -1822,8 +1645,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.2-dev",
-                    "dev-develop": "1.3-dev"
+                    "dev-master": "1.3-dev",
+                    "dev-develop": "1.4-dev"
                 }
             },
             "autoload": {
@@ -1842,14 +1665,17 @@
                 "psr",
                 "psr-7"
             ],
-            "time": "2015-11-24 19:16:22"
+            "time": "2015-12-22 22:44:06"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "beta",
     "stability-flags": {
-        "php-di/slim-bridge": 20
+        "php-di/slim-bridge": 20,
+        "php-di/kernel": 20,
+        "mnapoli/twig-module": 20,
+        "puli/composer-plugin": 10
     },
     "prefer-stable": true,
     "prefer-lowest": false,

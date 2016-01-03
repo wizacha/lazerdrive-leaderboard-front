@@ -4,14 +4,22 @@
     "path-mappings": {
         "/app": "res"
     },
+    "bindings": {
+        "cc59259b-7ceb-4c97-bc20-ae9a333c4fbf": {
+            "_class": "Puli\\Discovery\\Binding\\ResourceBinding",
+            "query": "/app/config/local.php",
+            "type": "php-di/configuration"
+        },
+        "d8eca47a-cccb-467a-8fd8-bcedab5fe1dd": {
+            "_class": "Puli\\Discovery\\Binding\\ResourceBinding",
+            "query": "/app/config/config.php",
+            "type": "php-di/configuration"
+        }
+    },
     "config": {
         "bootstrap-file": "vendor/autoload.php"
     },
     "packages": {
-        "aura/router": {
-            "install-path": "vendor/aura/router",
-            "installer": "composer"
-        },
         "container-interop/container-interop": {
             "install-path": "vendor/container-interop/container-interop",
             "installer": "composer"
@@ -40,12 +48,20 @@
             "install-path": "vendor/mnapoli/silly-php-di",
             "installer": "composer"
         },
+        "mnapoli/twig-module": {
+            "install-path": "vendor/mnapoli/twig-module",
+            "installer": "composer"
+        },
         "nikic/fast-route": {
             "install-path": "vendor/nikic/fast-route",
             "installer": "composer"
         },
         "php-di/invoker": {
             "install-path": "vendor/php-di/invoker",
+            "installer": "composer"
+        },
+        "php-di/kernel": {
+            "install-path": "vendor/php-di/kernel",
             "installer": "composer"
         },
         "php-di/php-di": {
@@ -66,10 +82,6 @@
         },
         "psr/http-message": {
             "install-path": "vendor/psr/http-message",
-            "installer": "composer"
-        },
-        "psr/log": {
-            "install-path": "vendor/psr/log",
             "installer": "composer"
         },
         "puli/composer-plugin": {
@@ -98,23 +110,6 @@
         },
         "slim/slim": {
             "install-path": "vendor/slim/slim",
-            "installer": "composer"
-        },
-        "slim/twig-view": {
-            "install-path": "vendor/slim/twig-view",
-            "installer": "composer",
-            "env": "dev"
-        },
-        "stratify/http": {
-            "install-path": "vendor/stratify/http",
-            "installer": "composer"
-        },
-        "stratify/router": {
-            "install-path": "vendor/stratify/router",
-            "installer": "composer"
-        },
-        "stratify/twig-module": {
-            "install-path": "vendor/stratify/twig-module",
             "installer": "composer"
         },
         "symfony/console": {

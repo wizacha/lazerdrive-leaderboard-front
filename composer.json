@@ -1,5 +1,5 @@
 {
-    "name": "mnapoli/lazerdrive-leaderboard",
+    "name": "wizacha/lazerdrive-leaderboard",
     "license": "MIT",
     "type": "project",
     "autoload": {
@@ -9,17 +9,24 @@
     },
     "require": {
         "php": ">=7.0",
-        "slim/slim": "^3.0",
         "php-di/slim-bridge": "@dev",
-        "mnapoli/silly": "^1.1",
+        "php-di/kernel": "@dev",
         "mnapoli/silly-php-di": "^1.0",
-        "zendframework/zend-diactoros": "~1.2",
-        "php-di/php-di": "^5.2.0",
+        "mnapoli/twig-module": "@dev",
+        "zendframework/zend-diactoros": "^1.2",
         "guzzlehttp/guzzle": "^6.1",
-        "stratify/twig-module": "^0.1.1",
-        "puli/composer-plugin": "^1.0",
-        "doctrine/cache": "^1.5"
+        "puli/composer-plugin": "^1.0.0-beta8"
     },
     "minimum-stability": "beta",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/PHP-DI/Kernel"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/mnapoli/TwigModule"
+        }
+    ]
 }
