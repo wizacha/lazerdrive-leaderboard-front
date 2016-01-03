@@ -9,8 +9,8 @@
     },
     "require": {
         "php": ">=7.0",
-        "php-di/slim-bridge": "@dev",
-        "php-di/kernel": "@dev",
+        "php-di/slim-bridge": "~0.1.0",
+        "php-di/kernel": "~0.1.0",
         "mnapoli/silly-php-di": "^1.0",
         "mnapoli/twig-module": "@dev",
         "zendframework/zend-diactoros": "^1.2",

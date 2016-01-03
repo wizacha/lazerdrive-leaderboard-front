@@ -1,6 +1,6 @@
 {
     "version": "1.0",
-    "name": "mnapoli/lazerdrive-leaderboard",
+    "name": "wizacha/lazerdrive-leaderboard",
     "path-mappings": {
         "/app": "res"
     },

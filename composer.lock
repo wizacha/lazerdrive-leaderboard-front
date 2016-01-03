@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f4f82c59c19372e5433775e45299ded4",
-    "content-hash": "9247f9e6028f8c206fb6a8e1de682003",
+    "hash": "2a82b84ed988313e2b4baf93af8e4445",
+    "content-hash": "1a99e029af8d46b434869b3e3b0cd2c7",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -465,7 +465,7 @@
         },
         {
             "name": "php-di/kernel",
-            "version": "dev-master",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-DI/Kernel",
@@ -600,7 +600,7 @@
         },
         {
             "name": "php-di/slim-bridge",
-            "version": "dev-master",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-DI/Slim-Bridge.git",
@@ -1672,8 +1672,6 @@
     "aliases": [],
     "minimum-stability": "beta",
     "stability-flags": {
-        "php-di/slim-bridge": 20,
-        "php-di/kernel": 20,
         "mnapoli/twig-module": 20,
         "puli/composer-plugin": 10
     },
