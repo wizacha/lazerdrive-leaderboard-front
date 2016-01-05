@@ -1,0 +1,55 @@
+#!/usr/bin/env php
+<?php
+
+use Leaderboard\Application\Deployer;
+use Leaderboard\Application\Kernel;
+use Silly\Edition\PhpDi\Application;
+use Symfony\Component\Console\Output\OutputInterface;
+
+require __DIR__ . '/vendor/autoload.php';
+
+$container = (new Kernel)->createContainer();
+$app = new Application('Lazerdrive leaderboard', '1', $container);
+
+$app->command('deploy', function (Deployer $deployer, OutputInterface $output) {
+    $output->writeln($deployer->deploy());
+});
+
+$app->command('db:create', function (PDO $pdo) {
+    $pdo->exec(<<<SQL
+CREATE TABLE `player` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `color` char(6) CHARACTER SET latin1 NOT NULL,
+  `highscore` int(10) unsigned NOT NULL,
+  `is_online` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name_UNIQUE` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `player_daily_log` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `player_id` int(11) unsigned NOT NULL,
+  `date` date NOT NULL,
+  `highscore` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `date_player_id_UNIQUE` (`player_id`,`date`),
+  CONSTRAINT `fk_player_daily_log_player_id` FOREIGN KEY (`player_id`) REFERENCES `player` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+SQL
+    );
+});
+
+$app->command('db:fixtures', function (PDO $pdo) {
+    $pdo->exec(<<<SQL
+INSERT INTO player (name, color, highscore, is_online)
+VALUES ('Jean Chaine', '', 123, 0),
+       ('Jean Traine', '', 31, 1),
+       ('Jean Terre', '', 401, 1),
+       ('Jean Merde', '', 2, 0),
+       ('Jean Foui', '', 99, 0);
+SQL
+    );
+});
+
+$app->run();

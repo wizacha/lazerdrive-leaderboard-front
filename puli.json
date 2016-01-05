@@ -1,0 +1,156 @@
+{
+    "version": "1.0",
+    "name": "wizacha/lazerdrive-leaderboard",
+    "path-mappings": {
+        "/app": "res"
+    },
+    "bindings": {
+        "cc59259b-7ceb-4c97-bc20-ae9a333c4fbf": {
+            "_class": "Puli\\Discovery\\Binding\\ResourceBinding",
+            "query": "/app/config/local.php",
+            "type": "php-di/configuration"
+        },
+        "d8eca47a-cccb-467a-8fd8-bcedab5fe1dd": {
+            "_class": "Puli\\Discovery\\Binding\\ResourceBinding",
+            "query": "/app/config/config.php",
+            "type": "php-di/configuration"
+        }
+    },
+    "config": {
+        "bootstrap-file": "vendor/autoload.php"
+    },
+    "packages": {
+        "container-interop/container-interop": {
+            "install-path": "vendor/container-interop/container-interop",
+            "installer": "composer"
+        },
+        "doctrine/cache": {
+            "install-path": "vendor/doctrine/cache",
+            "installer": "composer"
+        },
+        "guzzlehttp/guzzle": {
+            "install-path": "vendor/guzzlehttp/guzzle",
+            "installer": "composer"
+        },
+        "guzzlehttp/promises": {
+            "install-path": "vendor/guzzlehttp/promises",
+            "installer": "composer"
+        },
+        "guzzlehttp/psr7": {
+            "install-path": "vendor/guzzlehttp/psr7",
+            "installer": "composer"
+        },
+        "mnapoli/silly": {
+            "install-path": "vendor/mnapoli/silly",
+            "installer": "composer"
+        },
+        "mnapoli/silly-php-di": {
+            "install-path": "vendor/mnapoli/silly-php-di",
+            "installer": "composer"
+        },
+        "mnapoli/twig-module": {
+            "install-path": "vendor/mnapoli/twig-module",
+            "installer": "composer"
+        },
+        "nikic/fast-route": {
+            "install-path": "vendor/nikic/fast-route",
+            "installer": "composer"
+        },
+        "php-di/invoker": {
+            "install-path": "vendor/php-di/invoker",
+            "installer": "composer"
+        },
+        "php-di/kernel": {
+            "install-path": "vendor/php-di/kernel",
+            "installer": "composer"
+        },
+        "php-di/php-di": {
+            "install-path": "vendor/php-di/php-di",
+            "installer": "composer"
+        },
+        "php-di/phpdoc-reader": {
+            "install-path": "vendor/php-di/phpdoc-reader",
+            "installer": "composer"
+        },
+        "php-di/slim-bridge": {
+            "install-path": "vendor/php-di/slim-bridge",
+            "installer": "composer"
+        },
+        "pimple/pimple": {
+            "install-path": "vendor/pimple/pimple",
+            "installer": "composer"
+        },
+        "psr/http-message": {
+            "install-path": "vendor/psr/http-message",
+            "installer": "composer"
+        },
+        "puli/composer-plugin": {
+            "install-path": "vendor/puli/composer-plugin",
+            "installer": "composer"
+        },
+        "puli/discovery": {
+            "install-path": "vendor/puli/discovery",
+            "installer": "composer"
+        },
+        "puli/repository": {
+            "install-path": "vendor/puli/repository",
+            "installer": "composer"
+        },
+        "puli/twig-extension": {
+            "install-path": "vendor/puli/twig-extension",
+            "installer": "composer"
+        },
+        "puli/url-generator": {
+            "install-path": "vendor/puli/url-generator",
+            "installer": "composer"
+        },
+        "ramsey/uuid": {
+            "install-path": "vendor/ramsey/uuid",
+            "installer": "composer"
+        },
+        "slim/slim": {
+            "install-path": "vendor/slim/slim",
+            "installer": "composer"
+        },
+        "symfony/console": {
+            "install-path": "vendor/symfony/console",
+            "installer": "composer"
+        },
+        "symfony/polyfill-mbstring": {
+            "install-path": "vendor/symfony/polyfill-mbstring",
+            "installer": "composer"
+        },
+        "symfony/process": {
+            "install-path": "vendor/symfony/process",
+            "installer": "composer"
+        },
+        "twig/twig": {
+            "install-path": "vendor/twig/twig",
+            "installer": "composer"
+        },
+        "webmozart/assert": {
+            "install-path": "vendor/webmozart/assert",
+            "installer": "composer"
+        },
+        "webmozart/expression": {
+            "install-path": "vendor/webmozart/expression",
+            "installer": "composer"
+        },
+        "webmozart/glob": {
+            "install-path": "vendor/webmozart/glob",
+            "installer": "composer"
+        },
+        "webmozart/key-value-store": {
+            "install-path": "vendor/webmozart/key-value-store",
+            "installer": "composer"
+        },
+        "webmozart/path-util": {
+            "install-path": "vendor/webmozart/path-util",
+            "installer": "composer"
+        },
+        "zendframework/zend-diactoros": {
+            "install-path": "vendor/zendframework/zend-diactoros",
+            "installer": "composer"
+        }
+    }
+}
