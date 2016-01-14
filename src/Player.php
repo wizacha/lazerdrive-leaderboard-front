@@ -22,7 +22,7 @@ class Player
     /**
      * @var string
      */
-    private $company = '';
+    private $company;
 
     /**
      * By default it's the default Gravatar.
@@ -31,11 +31,12 @@ class Player
      */
     private $avatarUrl = 'http://www.gravatar.com/avatar/?d=identicon';
 
-    public function __construct(string $name, int $highScore, bool $isOnline)
+    public function __construct(string $name, int $highScore, bool $isOnline, string $company = '')
     {
         $this->name = $name;
         $this->highScore = $highScore;
         $this->isOnline = $isOnline;
+        $this->company = $company;
     }
 
     public function getName() : string

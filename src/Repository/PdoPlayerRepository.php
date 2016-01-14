@@ -19,7 +19,7 @@ class PdoPlayerRepository implements PlayerRepository
 
     public function getTopPlayers() : array
     {
-        $statement = $this->db->query('SELECT name, highscore, is_online FROM player WHERE name NOT LIKE "Player %" ORDER BY highscore DESC LIMIT 20');
+        $statement = $this->db->query('SELECT name, highscore, is_online, company FROM player WHERE name NOT LIKE "Player %" ORDER BY highscore DESC LIMIT 20');
         $data = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         return $this->createPlayers($data);
@@ -27,7 +27,7 @@ class PdoPlayerRepository implements PlayerRepository
 
     public function getPlayersOnline() : array
     {
-        $statement = $this->db->query('SELECT name, highscore, is_online FROM player WHERE name NOT LIKE "Player %" AND is_online = 1 ORDER BY highscore DESC LIMIT 20');
+        $statement = $this->db->query('SELECT name, highscore, is_online, company FROM player WHERE name NOT LIKE "Player %" AND is_online = 1 ORDER BY highscore DESC LIMIT 20');
         $data = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         return $this->createPlayers($data);
@@ -39,7 +39,7 @@ class PdoPlayerRepository implements PlayerRepository
     private function createPlayers(array $data) : array
     {
         return array_map(function (array $playerData) {
-            return new Player($playerData['name'], $playerData['highscore'], $playerData['is_online']);
+            return new Player($playerData['name'], $playerData['highscore'], $playerData['is_online'], $playerData['company']);
         }, $data);
     }
 }
