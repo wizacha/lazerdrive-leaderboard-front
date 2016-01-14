@@ -4,6 +4,7 @@
 use Leaderboard\Application\Deployer;
 use Leaderboard\Application\Kernel;
 use Silly\Edition\PhpDi\Application;
+use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\OutputInterface;
 
 require __DIR__ . '/vendor/autoload.php';
@@ -15,6 +16,14 @@ $app->command('deploy', function (Deployer $deployer, OutputInterface $output) {
     $output->writeln($deployer->deploy());
 });
 
+$app->command('db:drop', function (PDO $pdo) {
+    $pdo->exec(<<<SQL
+DROP TABLE IF EXISTS `player_daily_log`;
+DROP TABLE IF EXISTS `player`;
+SQL
+    );
+});
+
 $app->command('db:create', function (PDO $pdo) {
     $pdo->exec(<<<SQL
 CREATE TABLE `player` (
@@ -23,6 +32,7 @@ CREATE TABLE `player` (
   `color` char(6) CHARACTER SET latin1 NOT NULL,
   `highscore` int(10) unsigned NOT NULL,
   `is_online` tinyint(1) NOT NULL,
+  `company` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -40,14 +50,16 @@ SQL
     );
 });
 
-$app->command('db:fixtures', function (PDO $pdo) {
+$app->command('db:fixtures', function (PDO $pdo, OutputInterface $output) use ($app) {
+    $app->find('db:drop')->run(new ArrayInput([]), $output);
+    $app->find('db:create')->run(new ArrayInput([]), $output);
     $pdo->exec(<<<SQL
-INSERT INTO player (name, color, highscore, is_online)
-VALUES ('Jean Chaine', '', 123, 0),
-       ('Jean Traine', '', 31, 1),
-       ('Jean Terre', '', 401, 1),
-       ('Jean Merde', '', 2, 0),
-       ('Jean Foui', '', 99, 0);
+INSERT INTO player (name, color, highscore, is_online, company)
+VALUES ('Jean Chaine', '', 123, 0, ''),
+       ('Jean Traine', '', 31, 1, ''),
+       ('Jean Terre', '', 401, 1, ''),
+       ('Jean Merde', '', 2, 0, ''),
+       ('Jean Foui', '', 99, 0, 'Wizaplace');
 SQL
     );
 });
