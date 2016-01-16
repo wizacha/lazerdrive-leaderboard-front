@@ -15,7 +15,7 @@ class Player
     private $highScore;
 
     /**
-     * @var string
+     * @var bool
      */
     private $isOnline;
 
