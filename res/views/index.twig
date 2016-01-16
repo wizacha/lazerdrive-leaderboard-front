@@ -41,7 +41,7 @@
                                 <img src="{{ player.avatarUrl }}" class="avatar">
                             </td>
                             <td>
-                                {{ player.name }}
+                                <span{% if player.color %} style="color: #{{ player.color }};"{% endif %}>{{ player.name }}</span>
                                 {% if player.company %}<span class="label label-primary">{{ player.company }}</span>{% endif %}
                                 {% if player.online %}<span class="label label-success">online</span>{% endif %}
                             </td>
@@ -67,7 +67,7 @@
                                     <img src="{{ player.avatarUrl }}" class="avatar">
                                 </td>
                                 <td>
-                                    {{ player.name }}
+                                    <span{% if player.color %} style="color: #{{ player.color }};"{% endif %}>{{ player.name }}</span>
                                     {% if player.company %}<span class="label label-primary">{{ player.company }}</span>{% endif %}
                                 </td>
                                 <td class="text-right score">

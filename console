@@ -55,9 +55,9 @@ $app->command('db:fixtures', function (PDO $pdo, OutputInterface $output) use ($
     $app->find('db:create')->run(new ArrayInput([]), $output);
     $pdo->exec(<<<SQL
 INSERT INTO player (name, color, highscore, is_online, company)
-VALUES ('Jean Chaine', '', 123, 0, ''),
-       ('Jean Traine', '', 31, 1, ''),
-       ('Jean Terre', '', 401, 1, ''),
+VALUES ('Jean Chaine', 'ebe81c', 123, 0, ''),
+       ('Jean Traine', '3cdb25', 31, 1, ''),
+       ('Jean Terre', '27f486', 401, 1, ''),
        ('Jean Merde', '', 2, 0, ''),
        ('Jean Foui', '', 99, 0, 'Wizaplace');
 SQL
